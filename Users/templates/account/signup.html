@@ -1,0 +1,79 @@
+{% extends "account/base.html" %}
+
+{% load account socialaccount %}
+
+{% load user_filters %}
+
+{% block head_title %}Регистрация{% endblock %}
+
+
+{% block content %}
+
+  <div class="row justify-content-center">
+    <div class="col-md-8 p-5">
+      <div class="card">
+        <div class="card-header">Регистрация</div>
+        <div class="card-body">
+
+          {% for error in form.errors %}
+            <div class="alert alert-danger" role="alert">
+              {{ error }}
+            </div>
+          {% endfor %}
+
+          <p class="text-center">Уже зарегистрированы? <a href="{{ login_url }}">Войдите</a>.</p>
+
+          <form method="post" action="{% url 'account_signup' %}" class="signup" id="signup_form">
+            {% csrf_token %}
+
+            {% for field in form %}
+              <div class="form-group row" aria-required="true">
+                <label for="{{ field.id_for_label }}" class="col-md-4 col-form-label text-md-right">
+                  {{ field.label }}
+                </label>
+                <div class="col-md-6">
+                  {% if field.field.required %}
+                    {{ field|addclass:"form-control" }}
+                  {% else %}
+                    {{ field|add_class_req_autofoc:"form-control" }}
+                  {% endif %}
+                  {% if field.help_text %}
+                    <small id="{{ field.id_for_label }}-help" class="form-text text-muted">
+                      {{ field.help_text|safe }}
+                    </small>
+                  {% endif %}
+                </div>
+              </div>
+            {% endfor %}
+
+            {% if redirect_field_value %}
+              <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+            {% endif %}
+
+            <div class="col-md-6 offset-md-4">
+              <button type="submit" class="btn btn-primary">
+                Зарегистрироваться
+              </button>
+            </div>
+
+          </form>
+
+          {% get_providers as socialaccount_providers %}
+
+          {% if socialaccount_providers %}
+            <br/>
+            <div class="text-center">
+              <div class="socialaccount_ballot">
+                <p>Зарегистрироваться через:</p>
+                  {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+              </div>
+              {% include "socialaccount/snippets/login_extra.html" %}
+            </div>
+          {% endif %}
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

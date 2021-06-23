@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Пост {{ post.author.username }}{% endblock %}
+
+
+{% block content %}
+
+<main role="main" class="container">
+  <div class="row">
+    {% include 'card_user.html' with author=post.author more_info=Fasle %}
+    <div class="col-md-9">
+      {% include "post_item.html" with post=post %}
+    </div>
+  </div>
+  {% if post.is_pub == True %}
+    {% include 'comments.html' with comments=post.comments.all %}
+  {% endif %}
+</main>
+
+{% endblock %}

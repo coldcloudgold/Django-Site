@@ -1,0 +1,441 @@
+[
+    {
+        "model": "auth.user",
+        "pk": 1,
+        "fields": {
+            "password": "user_1",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "user_1",
+            "first_name": "Пользователь 1",
+            "last_name": "Пользователь 1",
+            "email": "user_1@user.user",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2021-03-14T00:00:00Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 2,
+        "fields": {
+            "password": "user_2",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "user_2",
+            "first_name": "Пользователь 2",
+            "last_name": "Пользователь 2",
+            "email": "user_2@user.user",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2021-03-14T00:00:00Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 3,
+        "fields": {
+            "password": "user_3",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "user_3",
+            "first_name": "Пользователь 3",
+            "last_name": "Пользователь 3",
+            "email": "user_3@user.user",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2021-03-14T00:00:00Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "Posts.post",
+        "pk": 1,
+        "fields": {
+            "title": "Заголовок 1 поста",
+            "text": "Пост 1",
+            "pub_date": "2021-03-14T00:01:00Z",
+            "author": 1,
+            "is_pub": true
+        }
+    },
+    {
+        "model": "Posts.post",
+        "pk": 2,
+        "fields": {
+            "title": "Заголовок 2 поста",
+            "text": "Пост 2",
+            "pub_date": "2021-03-14T00:02:00Z",
+            "author": 1,
+            "is_pub": true
+        }
+    },
+    {
+        "model": "Posts.post",
+        "pk": 3,
+        "fields": {
+            "title": "Заголовок 3 поста",
+            "text": "Пост 3",
+            "pub_date": "2021-03-14T00:03:00Z",
+            "author": 1,
+            "is_pub": true
+        }
+    },
+    {
+        "model": "Posts.post",
+        "pk": 4,
+        "fields": {
+            "title": "Заголовок 4 поста",
+            "text": "Пост 4",
+            "pub_date": "2021-03-14T00:04:00Z",
+            "author": 1,
+            "is_pub": true
+        }
+    },
+    {
+        "model": "Posts.post",
+        "pk": 5,
+        "fields": {
+            "title": "Заголовок 5 поста",
+            "text": "Пост 5",
+            "pub_date": "2021-03-14T00:05:00Z",
+            "author": 1,
+            "is_pub": true
+        }
+    },
+    {
+        "model": "Posts.post",
+        "pk": 6,
+        "fields": {
+            "title": "Заголовок 6 поста",
+            "text": "Пост 6",
+            "pub_date": "2021-03-14T00:06:00Z",
+            "author": 1,
+            "is_pub": true
+        }
+    },
+    {
+        "model": "Posts.post",
+        "pk": 7,
+        "fields": {
+            "title": "Заголовок 7 поста",
+            "text": "Пост 7",
+            "pub_date": "2021-03-14T00:07:00Z",
+            "author": 1,
+            "is_pub": true
+        }
+    },
+    {
+        "model": "Posts.post",
+        "pk": 8,
+        "fields": {
+            "title": "Заголовок 8 поста",
+            "text": "Пост 8",
+            "pub_date": "2021-03-14T00:08:00Z",
+            "author": 1,
+            "is_pub": true
+        }
+    },
+    {
+        "model": "Posts.post",
+        "pk": 9,
+        "fields": {
+            "title": "Заголовок 9 поста",
+            "text": "Пост 9",
+            "pub_date": "2021-03-14T00:09:00Z",
+            "author": 2,
+            "is_pub": true
+        }
+    },
+    {
+        "model": "Posts.post",
+        "pk": 10,
+        "fields": {
+            "title": "Заголовок 10 поста",
+            "text": "Пост 10",
+            "pub_date": "2021-03-14T00:10:00Z",
+            "author": 2,
+            "is_pub": true
+        }
+    },
+    {
+        "model": "Posts.post",
+        "pk": 11,
+        "fields": {
+            "title": "Заголовок 11 поста",
+            "text": "Пост 11",
+            "pub_date": "2021-03-14T00:11:00Z",
+            "author": 2,
+            "is_pub": true
+        }
+    },
+    {
+        "model": "Posts.post",
+        "pk": 12,
+        "fields": {
+            "title": "Заголовок 12 поста",
+            "text": "Пост 12",
+            "pub_date": "2021-03-14T00:12:00Z",
+            "author": 2,
+            "is_pub": true
+        }
+    },
+    {
+        "model": "Posts.post",
+        "pk": 13,
+        "fields": {
+            "title": "Заголовок 13 поста",
+            "text": "Пост 13",
+            "pub_date": "2021-03-14T00:13:00Z",
+            "author": 2,
+            "is_pub": true
+        }
+    },
+    {
+        "model": "Posts.post",
+        "pk": 14,
+        "fields": {
+            "title": "Заголовок 14 поста",
+            "text": "Пост 14",
+            "pub_date": "2021-03-14T00:14:00Z",
+            "author": 2,
+            "is_pub": true
+        }
+    },
+    {
+        "model": "Posts.post",
+        "pk": 15,
+        "fields": {
+            "title": "Заголовок 15 поста",
+            "text": "Пост 15",
+            "pub_date": "2021-03-14T00:15:00Z",
+            "author": 2,
+            "is_pub": true
+        }
+    },
+    {
+        "model": "Posts.post",
+        "pk": 16,
+        "fields": {
+            "title": "Заголовок 16 поста",
+            "text": "Пост 16",
+            "pub_date": "2021-03-14T00:16:00Z",
+            "author": 2,
+            "is_pub": true
+        }
+    },
+    {
+        "model": "Posts.post",
+        "pk": 17,
+        "fields": {
+            "title": "Заголовок 17 поста",
+            "text": "Пост 17",
+            "pub_date": "2021-03-14T00:17:00Z",
+            "author": 3,
+            "is_pub": false
+        }
+    },
+    {
+        "model": "Posts.post",
+        "pk": 18,
+        "fields": {
+            "title": "Заголовок 18 поста",
+            "text": "Пост 18",
+            "pub_date": "2021-03-14T00:18:00Z",
+            "author": 3,
+            "is_pub": false
+        }
+    },
+    {
+        "model": "Posts.post",
+        "pk": 19,
+        "fields": {
+            "title": "Заголовок 19 поста",
+            "text": "Пост 19",
+            "pub_date": "2021-03-14T00:19:00Z",
+            "author": 3,
+            "is_pub": false
+        }
+    },
+    {
+        "model": "Posts.post",
+        "pk": 20,
+        "fields": {
+            "title": "Заголовок 20 поста",
+            "text": "Пост 20",
+            "pub_date": "2021-03-14T00:20:00Z",
+            "author": 3,
+            "is_pub": false
+        }
+    },
+    {
+        "model": "Posts.comment",
+        "pk": 1,
+        "fields": {
+            "post": 1,
+            "author": 2,
+            "text": "Комментарий к посту 1",
+            "created": "2021-03-14T00:01:00Z"
+        }
+    },
+    {
+        "model": "Posts.comment",
+        "pk": 2,
+        "fields": {
+            "post": 8,
+            "author": 2,
+            "text": "Комментарий к посту 8",
+            "created": "2021-03-14T00:08:00Z"
+        }
+    },
+    {
+        "model": "Posts.comment",
+        "pk": 3,
+        "fields": {
+            "post": 9,
+            "author": 1,
+            "text": "Комментарий к посту 9",
+            "created": "2021-03-14T00:09:00Z"
+        }
+    },
+    {
+        "model": "Posts.comment",
+        "pk": 4,
+        "fields": {
+            "post": 16,
+            "author": 1,
+            "text": "Комментарий к посту 16",
+            "created": "2021-03-14T00:16:00Z"
+        }
+    },
+    {
+        "model": "Posts.comment",
+        "pk": 5,
+        "fields": {
+            "post": 1,
+            "author": 3,
+            "text": "Комментарий к посту 1",
+            "created": "2021-03-14T00:01:00Z"
+        }
+    },
+    {
+        "model": "Posts.comment",
+        "pk": 6,
+        "fields": {
+            "post": 8,
+            "author": 3,
+            "text": "Комментарий к посту 8",
+            "created": "2021-03-14T00:08:00Z"
+        }
+    },
+    {
+        "model": "Posts.comment",
+        "pk": 7,
+        "fields": {
+            "post": 9,
+            "author": 3,
+            "text": "Комментарий к посту 9",
+            "created": "2021-03-14T00:09:00Z"
+        }
+    },
+    {
+        "model": "Posts.comment",
+        "pk": 6,
+        "fields": {
+            "post": 16,
+            "author": 3,
+            "text": "Комментарий к посту 16",
+            "created": "2021-03-14T00:16:00Z"
+        }
+    },
+    {
+        "model": "Posts.follow",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "author": 2
+        }
+    },
+    {
+        "model": "Posts.follow",
+        "pk": 2,
+        "fields": {
+            "user": 2,
+            "author": 1
+        }
+    },
+    {
+        "model": "Posts.follow",
+        "pk": 3,
+        "fields": {
+            "user": 3,
+            "author": 1
+        }
+    },
+    {
+        "model": "Posts.follow",
+        "pk": 4,
+        "fields": {
+            "user": 3,
+            "author": 2
+        }
+    },
+    {
+        "model": "sites.site",
+        "pk": 1,
+        "fields": {
+            "domain": "localhost:8080",
+            "name": "localhost:8080"
+        }
+    },
+    {
+        "model": "flatpages.flatpage",
+        "pk": 1,
+        "fields": {
+            "url": "/author/",
+            "title": "Об авторе",
+            "content": "<p>Специализация: Python backend developer<br>\r\nХобби: <a href=\"https://play.google.com/store/apps/details?id=com.GamePD.FasterUp\">GameDev</a></p>",
+            "enable_comments": false,
+            "template_name": "",
+            "registration_required": false,
+            "sites": [
+                1
+            ]
+        }
+    },
+    {
+        "model": "flatpages.flatpage",
+        "pk": 2,
+        "fields": {
+            "url": "/spec/",
+            "title": "Используемые технологии",
+            "content": "<p>Данный сайт разработан при помощи фреймворка <a href=\"https://www.djangoproject.com/\">Django</a><br> \r\nПомимо него в проекте используется:<br>\r\n<a href=\"https://www.postgresql.org/\">Postgres</a><br>\r\n<a href=\"https://docs.celeryproject.org/en/stable/index.html\">Celery</a><br>\r\n<a href=\"https://www.rabbitmq.com/\">RabbitMQ</a><br>\r\n<a href=\"https://memcached.org/\">Memcached</a><br>\r\n<a href=\"https://django-allauth.readthedocs.io/en/latest/installation.html\">Django-Allauth</a><br>\r\nДля развертывания используется <a href=\"https://www.docker.com/\">Docker-compose</a></p>",
+            "enable_comments": false,
+            "template_name": "",
+            "registration_required": false,
+            "sites": [
+                1
+            ]
+        }
+    },
+    {
+        "model": "flatpages.flatpage",
+        "pk": 3,
+        "fields": {
+            "url": "/contacts/",
+            "title": "Контактная информация",
+            "content": "<p>Аккаунты:<br>\r\n<a href=\"https://github.com/coldcloudgold\">GitHub</a><br>\r\n<a href=\"https://vk.com/cold_cloud_gold\">Vk</a><br>\r\n<a href=\"https://www.linkedin.com/in/ruslan-urazbakhtin\">LinkedIn</a><br>\r\nПочта:<br>\r\n<a href=\"mailto:r.urazbakhtin.work@yandex.ru\">r.urazbakhtin.work@yandex.ru</a></p>",
+            "enable_comments": false,
+            "template_name": "",
+            "registration_required": false,
+            "sites": [
+                1
+            ]
+        }
+    }
+]

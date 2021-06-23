@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Профиль {{ author.username }}{% endblock %}
+
+
+{% block content %}
+
+  <main role="main" class="container">
+    <div class="row">
+      {% include 'card_user.html' with author=author more_info=True following=following %}
+      <div class="col-md-9">
+        {% if check == True and author == request.user %}
+          {% if page_obj %}
+            <p class="h4 text-center">Записи, проходящие проверку:</p>
+          {% else %}
+            <p class="h4 text-center">Нет записей.</p>
+          {% endif %}
+        {% endif %}
+
+        {% if page_obj %}
+          {% for post in page_obj %}
+            {% include "post_item.html" with post=post %}
+          {% endfor %}
+        {% else %}
+          {% if check == None %}
+            {% if author == request.user %}
+              <p class="h4 text-center">Если вы добавили новую запись, но не видите ее, скорее всего она на
+                проверке:<br />
+                <a href="{% url 'profile_check' author.username %}">Записи, ожидающие проверки</a>
+              </p>
+            {% else %}
+              <p class="h4 text-center">Нет записей.</p>
+            {% endif %}
+          {% endif %}
+        {% endif %}
+
+        {% if page_obj.has_other_pages %}
+          {% include "paginator.html" with items=page_obj %}
+        {% endif %}
+
+      </div>
+    </div>
+  </main>
+
+{% endblock %}

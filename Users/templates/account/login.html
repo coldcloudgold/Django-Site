@@ -1,0 +1,103 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+
+{% load account socialaccount %}
+
+{% load user_filters %}
+
+{% block head_title %}Войти{% endblock %}
+
+
+{% block content %}
+
+<div class="row justify-content-center">
+  <div class="col-md-8 p-5">
+    <div class="card">
+      <div class="card-header">Войти на сайт</div>
+      <div class="card-body">
+
+        {% if form.errors %}
+          <div class="alert alert-danger" role="alert">
+            Имя пользователя и пароль не совпадают.
+          </div>
+        {% endif %}
+
+        {% if next %}
+          <div class="alert alert-info" role="alert">
+            Вы обратились к странице, доступ к которой возможен только для залогиненных пользователей.<br>
+            Пожалуйста, авторизуйтесь.
+          </div>
+        {% else %}
+          <div class="alert alert-info" role="alert">
+            Пожалуйста, авторизуйтесь.
+          </div>
+        {% endif %}
+
+        <p class="text-center">Если у вас ещё нет учётной записи, пожалуйста, 
+          <a href="{{ signup_url }}">зарегистрируйтесь</a>.
+        </p>
+
+        <form method="post" action="{% url 'account_login' %}" class="login">
+          {% csrf_token %}
+
+          <div class="form-group row">
+            <label for="{{ form.login.id_for_label }}" class="col-md-4 col-form-label text-md-right">
+              Имя пользователя
+            </label>
+            <div class="col-md-6">
+              {{ form.login|addclass:"form-control" }}
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="{{ form.password.id_for_label }}" class="col-md-4 col-form-label text-md-right">
+              Пароль
+            </label>
+            <div class="col-md-6">
+              {{ form.password|addclass:"form-control" }}
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="{{ form.remember.id_for_label }}" class="col-md-4 col-form-label text-md-right">
+              Запомнить меня
+            </label>
+            <div class="col-md-6">
+              {{ form.remember }}
+            </div>
+          </div>
+
+          {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+          {% endif %}
+
+          <div class="col-md-6 offset-md-4">
+            <button type="submit" class="btn btn-primary">
+              Войти
+            </button>
+            <a href="{% url 'account_reset_password' %}" class="btn btn-link">
+              Забыли пароль?
+            </a>
+          </div>
+
+        </form>
+
+        {% get_providers as socialaccount_providers %}
+
+        {% if socialaccount_providers %}
+          <div class="text-center">
+            <div class="socialaccount_ballot">
+              <p>Войти через:</p>
+                {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+            </div>
+            {% include "socialaccount/snippets/login_extra.html" %}
+          </div>
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

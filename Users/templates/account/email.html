@@ -1,0 +1,120 @@
+{% extends "account/card.html" %}
+
+{% load user_filters %}
+
+{% block head_title %}E-mail адреса{% endblock %}
+
+
+{% block content.super %}
+
+  {% block card_header %}E-mail адреса{% endblock %}
+
+  {% block additional_information %}
+
+  {% if user.emailaddress_set.all %}
+    <p class="text-center font-weight-bold">
+      Следующие e-mail адреса прикреплены к вашему аккаунту:
+    </p>
+
+    <form method="post" action="{% url 'account_email' %}" class="email_list">
+      {% csrf_token %}
+
+      <fieldset class="blockLabels">
+      
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">E-mail</th>
+              <th scope="col">Подтвержден</th>
+              <th scope="col">Основной</th>
+            </tr>
+          </thead>
+          <tbody>
+
+        {% for emailaddress in user.emailaddress_set.all %}
+            <tr>
+              <th scope="row">
+                <div class="ctrlHolder">
+                  <label for="email_radio_{{forloop.counter}}" class="{% if emailaddress.primary %}primary_email{%endif%}">
+                  <input id="email_radio_{{forloop.counter}}" type="radio" name="email" {% if emailaddress.primary or user.emailaddress_set.count == 1 %}checked="checked"{%endif %} value="{{emailaddress.email}}"/>
+                  {{ emailaddress.email }}
+              </th>
+              <td>
+                {% if emailaddress.verified %}
+                  <span class="verified">✓</span>
+                {% else %}
+                  <span class="unverified">-</span>
+                {% endif %}
+              </td>
+              <td>
+                {% if emailaddress.primary %}
+                  <span class="primary">✓</span>
+                {% else %}
+                  <span>-</span>
+                {% endif %}
+              </td>
+            </tr>
+          </label>
+        </div>
+        {% endfor %}
+
+          </tbody>
+        </table>
+
+        <div class="buttonHolder">
+          <button class="secondaryAction btn btn-primary" type="submit" name="action_primary" >Сделать основным</button>
+          <button class="secondaryAction btn btn-success" type="submit" name="action_send" >Отправить подтверждение</button>
+          <button class="primaryAction btn btn-danger" type="submit" name="action_remove" >Удалить</button>
+        </div>
+
+      </fieldset>
+
+    </form>
+  {% else %}
+    <p class="text-center">
+      В настоящее время у вас не настроен адрес электронной почты. Вам действительно следует добавить адрес электронной почты, чтобы вы могли получать уведомления, изменять пароль и совершать другие действия.
+    </p>
+  {% endif %}
+
+  {% if can_add_email %}
+    <hr/>
+    <p class="text-center font-weight-bold">Добавить e-mail адрес</p>
+
+    <form method="post" action="{% url 'account_email' %}" class="add_email">
+      {% csrf_token %}
+
+      <div class="form-group row">
+        <label for="{{ form.email.id_for_label }}" class="col-md-4 col-form-label text-md-right">
+            E-mail
+        </label>
+        <div class="col-md-6">
+          {{ form.email|addclass:"form-control" }}
+        </div>
+      </div>
+
+      <div class="col-md-6 offset-md-4 my-2">
+        <button type="submit" class="btn btn-primary" name="action_add">
+          Добавить e-mail
+        </button>
+      </div>
+
+    </form>
+  {% endif %}
+
+    <script type="text/javascript">
+      (function() {
+        var message = "Вы действительно хотите удалить выбранный адрес электронной почты?";
+        var actions = document.getElementsByName('action_remove');
+        if (actions.length) {
+          actions[0].addEventListener("click", function(e) {
+            if (! confirm(message)) {
+              e.preventDefault();
+            }
+          });
+        }
+      })();
+    </script>
+
+  {% endblock %}
+
+{% endblock %}

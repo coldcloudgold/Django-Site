@@ -1,0 +1,55 @@
+version: '3'
+
+services:
+
+  memcache:
+    image: memcached:1.6.9-alpine
+    # restart: always
+    ports: 
+      - "11212:11211"
+
+  postgresdb:
+    image: postgres:13.2-alpine
+    # restart: always
+    environment:
+      POSTGRES_DB: ${DJANGO_DB_DATABASE}
+      POSTGRES_USER: ${DJANGO_DB_USER}
+      POSTGRES_PASSWORD: ${DJANGO_DB_PASSWORD}
+    ports:
+      - "5433:5432"
+
+  messagebroker:
+    image: rabbitmq:3.8.16-alpine
+    # restart: always
+    environment: 
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASS}
+    ports:
+      - "5673:5672"
+
+  webapp:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/Site
+    ports:
+      - "8001:8000"
+    depends_on:
+      - memcache
+      - postgresdb
+      - messagebroker
+
+  nginxserver:
+    build:
+      context: ./docker/nginx
+      dockerfile: Dockerfile
+    # restart: always
+    volumes:
+      - ./static/:/static
+      - ./media/:/media
+    ports:
+      - "8080:80"
+    depends_on:
+      - webapp
+

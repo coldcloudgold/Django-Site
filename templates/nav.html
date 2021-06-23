@@ -1,0 +1,15 @@
+<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+  <a class="navbar-brand" href="/"><span style="color:green">Pied Piper</span></a>
+  <nav class="my-2 my-md-0 mr-md-3">
+    {% if user.is_authenticated %}
+      Пользователь: <a href="{% url 'profile' user.username %}">{{ user.username }}</a>
+      <a class="p-2 text-dark" href="{% url 'new_post' %}">Новая запись</a>
+      <a class="p-2 text-dark" href="{% url 'custom_change_password' %}">Изменить пароль</a>
+      <a class="p-2 text-dark" href="{% url 'account_email' %}">E-mail</a>
+      <a class="p-2 text-dark" href="{% url 'account_logout' %}">Выйти</a>
+    {% else %}
+      <a class="p-2 text-dark" href="{% url 'account_login' %}">Войти</a> |
+      <a class="p-2 text-dark" href="{% url 'account_signup' %}">Регистрация</a>
+    {% endif %}
+  </nav>
+</nav>

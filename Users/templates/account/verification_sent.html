@@ -1,0 +1,14 @@
+{% extends "account/card.html" %}
+
+{% load account %}
+
+{% block head_title %}Подтвердите ваш E-mail{% endblock %}
+
+
+{% block content.super %}
+
+  {% block card_header %}Подтвердите ваш e-mail{% endblock %}
+
+  {% block card_body %}Мы отправили вам e-mail с подтверждением. Для завершения процесса регистрации перейдите по указанной ссылке.{% endblock %}
+
+{% endblock %}

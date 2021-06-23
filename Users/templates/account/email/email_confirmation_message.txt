@@ -1,0 +1,7 @@
+{% extends "account/email/base_message.txt" %}
+{% load account %}
+
+{% block content %}{% autoescape off %}{% user_display user as user_display %}
+Вы получаете это письмо, потому что пользователь {{ user_display }} предоставил данный адрес электронной почты для регистрации учетной записи на {{ current_site.domain }}
+Чтобы подтвердить владение почтой, перейдите по ссылке {{ activate_url }}
+{% endautoescape %}{% endblock %}

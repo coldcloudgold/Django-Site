@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block header %}{{ header }}{% endblock %}
+
+
+{% block content %}
+
+{% include "menu.html" with type_page=type_page %}
+
+<div class="container">
+  {% if page_obj %}
+    {% for post in page_obj %}
+      {% include "post_item.html" with post=post comment=True %}
+    {% endfor %}
+  {% else %}
+    <p class="h4 text-center">Тут еще нет записей.</p>
+  {% endif %}
+</div>
+
+{% if page_obj.has_other_pages %}
+  {% include "paginator.html" with items=page_obj %}
+{% endif %}
+
+{% endblock %}
