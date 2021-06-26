@@ -14,6 +14,7 @@ urlpatterns = [
     path("spec/", views.flatpage, {"url": "/spec/"}, name="spec"),
     path("accounts/", include("Users.urls")),
     path("accounts/", include("allauth.urls")),
+    path("ckeditor/", include("ckeditor_uploader.urls")),
 ]
 
 

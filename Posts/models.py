@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+from ckeditor.fields import RichTextField
 
 
 User = get_user_model()
@@ -14,7 +15,8 @@ class Follow(models.Model):
 
 class Post(models.Model):
     title = models.CharField(max_length=100, verbose_name="Заголовок")
-    text = models.TextField(max_length=140, verbose_name="Содержание")
+    # text = models.TextField(max_length=140, verbose_name="Содержание")
+    text = RichTextField(max_length=500, verbose_name="Содержание")
     pub_date = models.DateTimeField(auto_now_add=True, verbose_name="Дата публикации")
     author = models.ForeignKey(to=User, on_delete=models.CASCADE, related_name="post", verbose_name="Автор")
     image = models.ImageField(

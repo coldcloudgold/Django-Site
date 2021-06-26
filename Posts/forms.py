@@ -1,14 +1,17 @@
-from django.forms import ModelForm
+from django import forms
 from .models import Post, Comment
+from ckeditor.widgets import CKEditorWidget
 
 
-class PostForm(ModelForm):
+class PostForm(forms.ModelForm):
+    text = forms.CharField(widget=CKEditorWidget(), label="Содержание")
+
     class Meta:
         model = Post
         fields = ["title", "text", "image"]
 
 
-class CommentForm(ModelForm):
+class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = ["text",]

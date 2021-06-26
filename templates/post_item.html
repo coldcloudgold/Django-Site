@@ -12,8 +12,8 @@
           @{{ post.author }}
         </strong>
       </a>
-      {{ post.title|linebreaksbr }} <br /><br />
-      {{ post.text|linebreaksbr }}
+      {{ post.title|safe }} <br /><br />
+      {{ post.text|safe }}
     </p>
 
     <div class="d-flex justify-content-between align-items-center">

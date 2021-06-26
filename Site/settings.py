@@ -35,6 +35,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "sorl.thumbnail",  # Image
     "psycopg2",  # DB
+    "ckeditor",  # WYSIWYG
+    "ckeditor_uploader",  # WYSIWYG
     "allauth",  # User
     "allauth.account",  # User
     "allauth.socialaccount",  # User
@@ -106,6 +108,88 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR.joinpath("media")
 
 
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_CONFIGS = {
+    "default": {
+        'width': "100%",
+        "toolbar_YourCustomToolbarConfig": [
+            {
+                "name": "basicstyles",
+                "items": [
+                    "Bold",
+                    "Italic",
+                    "Underline",
+                    "Strike",
+                    "Subscript",
+                    "Superscript",
+                    "-",
+                    "RemoveFormat",
+                ],
+            },
+            {
+                "name": "paragraph",
+                "items": [
+                    "NumberedList",
+                    "BulletedList",
+                    "-",
+                    "Blockquote",
+                    "-",
+                    "JustifyLeft",
+                    "JustifyCenter",
+                    "JustifyRight",
+                    "JustifyBlock",
+                ],
+            },
+            {
+                "name": "links",
+                "items": [
+                    "Link",
+                    "Unlink",
+                ],
+            },
+            {
+                "name": "insert", "items": ["HorizontalRule"]
+                },
+            "/",
+            {
+                "name": "styles", "items": ["Format"]
+                },
+            "/",
+            {
+                "name": "yourcustomtools",
+                "items": [
+                    "Preview",
+                    "Maximize",
+                ],
+            },
+        ],
+        "toolbar": "YourCustomToolbarConfig",
+        # 'filebrowserWindowHeight': 725,
+        # 'filebrowserWindowWidth': 940,
+        # 'toolbarCanCollapse': True,
+        # 'mathJaxLib': '//cdn.mathjax.org/mathjax/2.2-latest/MathJax.js?config=TeX-AMS_HTML',
+        "tabSpaces": 4,
+        "extraPlugins": ",".join(
+            [
+                # your extra plugins here
+                "div",
+                "autolink",
+                "autoembed",
+                "embedsemantic",
+                "autogrow",
+                # 'devtools',
+                "widget",
+                "lineutils",
+                "clipboard",
+                "dialog",
+                "dialogui",
+                "elementspath",
+            ]
+        ),
+    }
+}
+
+
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
@@ -143,7 +227,7 @@ LOGGING = {
 }
 
 # Login
-# LOGIN_URL = 
+# LOGIN_URL =
 LOGIN_REDIRECT_URL = "index"
 LOGOUT_REDIRECT_URL = "index"
 
